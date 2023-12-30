@@ -1,11 +1,25 @@
-# AMA-Prompt-Application
+# CLI Python Tutor 
+
+## Description
+
+This command line interface-based application leverages the OpenAI API to generate answers to python related questions. It also explores principles of prompt engineerng through the use of LangChain output parsers. 
+
+I loved getting exposure to using OpenAI's API and learning about principles of prompt engineering. I have personally found this useful as I am advancing my python skills. I hope you do too! 
 
 
-Initialize the application using `node script.js`
+## Installation 
 
+Run `npm install` in the command line to install packages. 
+
+Initialize the application by running `node script.js`.
+
+
+## Credits 
 
 - [OpenAI API](https://platform.openai.com/docs/api-reference)
 - [Langchain](https://python.langchain.com/docs/get_started/introduction)
+
+
 
 ## MIT License
 

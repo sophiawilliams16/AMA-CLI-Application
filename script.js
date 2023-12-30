@@ -16,7 +16,7 @@ const model = new OpenAI({
 
 // define a schema for the output
         const parser = StructuredOutputParser.fromNamesAndDescriptions({
-            code: "Javascript code that answers the user's question",
+            code: "Python code that answers the user's question",
             explanation: "detailed explanation of the example code provided",
         });
 
@@ -31,7 +31,7 @@ const promptFunc = async (input) => {
         // Define parameters for each question asked using template 
         const prompt = new PromptTemplate({
             template:
-                "You are a javascript expert and will answer the user’s coding questions thoroughly as possible.\n{format_instructions}\n{question}",
+                "You are a python expert and will answer the user’s coding questions thoroughly as possible.\n{format_instructions}\n{question}",
             inputVariables: ["question"],
             partialVariables: { format_instructions: formatInstructions }
         });
