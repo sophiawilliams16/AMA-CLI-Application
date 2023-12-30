@@ -18,6 +18,7 @@ Initialize the application by running `node script.js`.
 
 - [OpenAI API](https://platform.openai.com/docs/api-reference)
 - [Langchain](https://python.langchain.com/docs/get_started/introduction)
+- [edX AI Applications and Prompt Engineering](https://learning.edx.org/course/course-v1:edX+BC-OC-ai+2T2023/home)
 
 
 
