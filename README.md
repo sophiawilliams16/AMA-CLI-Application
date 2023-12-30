@@ -4,7 +4,7 @@
 
 This command line interface-based application leverages the OpenAI API to generate answers to python related questions. It also explores principles of prompt engineerng through the use of LangChain output parsers. 
 
-I loved getting exposure to using OpenAI's API and learning about principles of prompt engineering. I have personally found this useful as I am advancing my python skills. I hope you do too! 
+I loved getting exposure to using OpenAI's API and learning about principles of prompt engineering. I have personally found this useful as I am advancing my python skills. I hope you do too! In the future I hope to make this into a full stack application.
 
 
 ## Installation 
