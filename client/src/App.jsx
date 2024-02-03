@@ -1,10 +1,9 @@
 import './App.css';
-import BucketList from './components/BucketList';
 
 function App() {
   return (
     <div className="title">
-      <p>Gravity</p>
+      <p>Success</p>
     </div>
   );
 }

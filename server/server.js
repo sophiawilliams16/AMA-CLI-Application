@@ -11,17 +11,24 @@ app.use(express.json());
 
 app.use(routes);
 
-app.listen(PORT, () => {
-    console.log(`Server is live at port ${PORT}`);
+// Serve static files from the 'client/dist' directory
+app.use(express.static(path.join(__dirname, '../client/dist')));
+
+// Add a custom middleware to set the correct MIME type for .jsx files
+app.use((req, res, next) => {
+  if (req.url.endsWith('.jsx')) {
+    res.type('application/javascript');
+  }
+  next();
 });
 
-// if we're in production, serve client/dist as static assets
-if (process.env.NODE_ENV === 'production') {
-	app.use(express.static(path.join(__dirname, '../client/dist')));
-}
-
+// Serve 'index.html' for all other routes
 app.get('/*', (req, res) => {
-	res.sendFile(path.join(__dirname, '../client/dist/index.html'));
+  res.sendFile(path.join(__dirname, '../client/dist/index.html'));
+});
+
+app.listen(PORT, () => {
+  console.log(`Server is live at port ${PORT}`);
 });
 
 // db.once('open', () => {
