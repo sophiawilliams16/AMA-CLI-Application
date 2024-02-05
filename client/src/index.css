@@ -8,14 +8,18 @@
 }
 
 body {
+	background-image: url('./assets/stars.jpeg');
 	background-size: cover;
 	background-position: bottom;
 	background-attachment: fixed;
 	background-color: #b4befe;
 	-ms-overflow-style: none;
 	scrollbar-width: none;
+	color: white;
 }
 
 body::-webkit-scrollbar {
 	display: none;
 }
+
+

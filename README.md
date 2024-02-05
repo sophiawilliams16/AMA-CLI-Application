@@ -7,11 +7,41 @@ This command line interface-based application leverages the OpenAI API to genera
 I loved getting exposure to using OpenAI's API and learning about principles of prompt engineering. I have personally found this useful as I am advancing my python skills. I hope you do too! In the future I hope to make this into a full stack application.
 
 
-## Installation 
+## Installation
 
-Run `npm install` in the command line to install packages. 
+1.  Clone the repo
 
-Initialize the application by running `node script.js`.
+    ```sh
+    git clone https://github.com/manc1n1/zenvest.git
+    ```
+
+2.  Change directories to `zenvest`
+
+    ```sh
+    cd zenvest
+    ```
+
+3.  Install NPM packages
+
+    ```sh
+    npm run install
+    ```
+
+## Usage
+
+1. Change directories to where you cloned the repo
+
+    ```sh
+    cd path/to/zenvest
+    ```
+
+2. Run `npm run develop`
+
+    ```sh
+    npm run dev
+    ```
+
+3. Go to `http://localhost:3000/` in your browser
 
 
 ## Credits 
