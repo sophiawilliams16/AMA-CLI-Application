@@ -1,6 +1,5 @@
 const express = require('express');
 const path = require('path');
-//const db = require('./config/connection');
 const routes = require('./routes');
 
 const PORT = process.env.PORT || 3000;
@@ -30,7 +29,3 @@ app.get('/*', (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server is live at port ${PORT}`);
 });
-
-// db.once('open', () => {
-// 	app.listen(PORT, () => console.log(`Now listening on localhost: ${PORT}`));
-// });

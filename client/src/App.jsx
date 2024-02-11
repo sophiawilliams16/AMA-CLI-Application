@@ -2,9 +2,9 @@ import Hello from "./pages/Hello";
 
 function App() {
   return (
-    <div className="">
+    <section>
       <Hello />
-    </div>
+    </section>
   );
 }
 

@@ -6,6 +6,8 @@ This command line interface-based application leverages the OpenAI API to genera
 
 I loved getting exposure to using OpenAI's API and learning about principles of prompt engineering. I have personally found this useful as I am advancing my python skills. I hope you do too! In the future I hope to make this into a full stack application.
 
+- Save name in local storage 
+
 
 ## Installation
 
