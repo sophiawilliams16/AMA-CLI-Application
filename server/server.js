@@ -1,4 +1,5 @@
 const express = require('express');
+const promptFunc = require("./script");
 const path = require('path');
 const routes = require('./routes');
 
@@ -9,6 +10,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.use(routes);
+
+app.use(express.json());
 
 // Serve static files from the 'client/dist' directory
 app.use(express.static(path.join(__dirname, '../client/dist')));
@@ -24,6 +27,17 @@ app.use((req, res, next) => {
 // Serve 'index.html' for all other routes
 app.get('/*', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/dist/index.html'));
+});
+
+app.post("/ask", async (req, res) => {
+  try {
+    const userQuestion = req.body.question;
+    const response = await promptFunc(userQuestion);
+    res.json({ response });
+  } catch (error){
+    console.error("Error processing the request:", error);
+    res.status(500).json({ error: "Internal server error" });
+  }
 });
 
 app.listen(PORT, () => {

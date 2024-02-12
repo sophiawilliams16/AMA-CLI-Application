@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IconButton } from "@material-tailwind/react";
 import { faArrowAltCircleUp } from '@fortawesome/free-solid-svg-icons';
 
-const Chat = () => {
+const Ask = () => {
     return (
     <section className="grid place-items-center justify-items-center mt-24">
 		<div className='max-w-xs bg-white bg-opacity-10 rounded-lg bg-clip-padding backdrop-filter backdrop-blur-lg p-8 mb-4 shadow-lg mx-auto text-center'>
@@ -25,4 +25,4 @@ const Chat = () => {
     )
 };
 
-export default Chat;
+export default Ask;
