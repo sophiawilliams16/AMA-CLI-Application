@@ -1,10 +1,13 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useHistory } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IconButton } from "@material-tailwind/react";
 import { faArrowAltCircleUp } from '@fortawesome/free-solid-svg-icons';
+import { useNavigate } from 'react-router-dom';
 
 const Hello = () => {
-    const [userName, setUserName] = useState('');
+	const [userName, setUserName] = useState('');
+	
+	const navigate = useNavigate();
 
     useEffect(() => {
         const savedUserName = localStorage.getItem('savedUserName');
@@ -21,7 +24,8 @@ const Hello = () => {
     const saveUserName = () => {
         try {
             localStorage.setItem('savedUserName', userName);
-            console.log("Name saved successfully")
+			console.log("Name saved successfully");
+			navigate('/ask');
         } catch (error) {
 			console.error('Error saving username to local storage:', error);
         }
