@@ -5,29 +5,29 @@ import { faArrowAltCircleUp } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
 
 const Hello = () => {
-	const [userName, setUserName] = useState('');
+	const [name, setName] = useState('');
 	
 	const navigate = useNavigate();
 
     useEffect(() => {
-        const savedUserName = localStorage.getItem('savedUserName');
-        if (savedUserName !== null) {
-            setUserName(savedUserName);
+        const savedName = localStorage.getItem('savedName');
+        if (savedName !== null) {
+            setName(savedName);
         }
     }, []);
 
     const handleNameChange = (event) => {
         const value = event.target.value;
-        setUserName(value);
+        setName(value);
     };
 
-    const saveUserName = () => {
+    const saveName = () => {
         try {
-            localStorage.setItem('savedUserName', userName);
+            localStorage.setItem('savedName', name);
 			console.log("Name saved successfully");
 			navigate('/ask');
         } catch (error) {
-			console.error('Error saving username to local storage:', error);
+			console.error('Error saving name to local storage:', error);
         }
     };
 
@@ -42,11 +42,11 @@ const Hello = () => {
                     placeholder="enter your first name"
                     name="name"
                     id="name"
-                    value={userName}
+                    value={name}
                     onChange={handleNameChange}
                     required
                 />
-                <IconButton variant="rounded bg-[#333333] hover:shadow-[#333333]/20 focus:shadow-[#333333]/20 active:shadow-[#333333]/10" onClick={saveUserName}>
+                <IconButton variant="rounded bg-[#333333] hover:shadow-[#333333]/20 focus:shadow-[#333333]/20 active:shadow-[#333333]/10" onClick={saveName}>
                     <FontAwesomeIcon icon={faArrowAltCircleUp} className="text-white size-5 mt-2 ml-3" />
                 </IconButton>
             </div>
