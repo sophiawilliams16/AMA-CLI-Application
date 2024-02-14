@@ -41,11 +41,14 @@ const Ask = ({name, setName}) => {
                 onChange={(e) => setPrompt(e.target.value)}
                 required
                 />
-           <IconButton variant="rounded bg-[#333333] hover:shadow-[#333333]/20 focus:shadow-[#333333]/20 active:shadow-[#333333]/10" onClick={submitPrompt}>
+           <IconButton className="rounded hover:shadow-[#333333]/20 focus:shadow-[#333333]/20 active:shadow-[#333333]/10" onClick={submitPrompt}>
                 <FontAwesomeIcon
                     icon={faArrowAltCircleUp} className="text-white size-5 mt-2 ml-3"/>
             </IconButton>
         </div>    
+        <div className='max-w-xs bg-white bg-opacity-10 rounded-lg bg-clip-padding backdrop-filter backdrop-blur-lg p-3 m-4 shadow-lg mx-auto text-center'>
+            <div>response</div>
+        </div> 
     </section>
     )
 };

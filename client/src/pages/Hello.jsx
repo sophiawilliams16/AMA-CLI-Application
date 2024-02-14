@@ -46,7 +46,7 @@ const Hello = () => {
                     onChange={handleNameChange}
                     required
                 />
-                <IconButton variant="rounded bg-[#333333] hover:shadow-[#333333]/20 focus:shadow-[#333333]/20 active:shadow-[#333333]/10" onClick={saveName}>
+                <IconButton className="rounded hover:shadow-[#333333]/20 focus:shadow-[#333333]/20 active:shadow-[#333333]/10" onClick={saveName}>
                     <FontAwesomeIcon icon={faArrowAltCircleUp} className="text-white size-5 mt-2 ml-3" />
                 </IconButton>
             </div>
