@@ -3,8 +3,8 @@ const promptFunc = require("./script");
 const path = require('path');
 const routes = require('./routes');
 
-const PORT = process.env.PORT || 3000;
 const app = express();
+const PORT = process.env.PORT || 3000;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -24,12 +24,7 @@ app.use((req, res, next) => {
   next();
 });
 
-// Serve 'index.html' for all other routes
-app.get('/*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../client/dist/index.html'));
-});
-
-app.post("/ask", async (req, res) => {
+app.post("/api/ask", async (req, res) => {
   try {
     const userQuestion = req.body.question;
     const response = await promptFunc(userQuestion);
@@ -38,6 +33,11 @@ app.post("/ask", async (req, res) => {
     console.error("Error processing the request:", error);
     res.status(500).json({ error: "Internal server error" });
   }
+});
+
+// Serve 'index.html' for all other routes
+app.get('/*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../client/dist/index.html'));
 });
 
 app.listen(PORT, () => {

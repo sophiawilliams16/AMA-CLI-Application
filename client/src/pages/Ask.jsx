@@ -2,11 +2,13 @@ import { useState, useEffect} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IconButton } from "@material-tailwind/react";
 import { faArrowAltCircleUp } from '@fortawesome/free-solid-svg-icons';
+import Response from '../components/response';
 
 const Ask = ({name, setName}) => {
     
     const [prompt, setPrompt] = useState('');
     const [storedName, setStoredName] = useState('');
+    const [response, setResponse] = useState(false);
 
     // retrieve name from local storage 
     useEffect(() => {
@@ -16,11 +18,13 @@ const Ask = ({name, setName}) => {
         }
     }, []); 
 
-    const submitPrompt = () => {
-        // use the userName and prompt variables to interact with the OpenAI API
-        // make API call to send prompt and get a response.
+    // make API call to send prompt and get a response.
+    const submitPrompt = async () => {
+        try {
+            const response = await fetch()
+        } catch {
 
-        // For demonstration purposes, let's just log the values for now:
+        }
         console.log('Name:', name);
         console.log('Prompt:', prompt);
     };
@@ -46,8 +50,9 @@ const Ask = ({name, setName}) => {
                     icon={faArrowAltCircleUp} className="text-white size-5 mt-2 ml-3"/>
             </IconButton>
         </div>    
-        <div className='max-w-xs bg-white bg-opacity-10 rounded-lg bg-clip-padding backdrop-filter backdrop-blur-lg p-3 m-4 shadow-lg mx-auto text-center'>
-            <div>response</div>
+        <div>
+            {/* if event has occured display response */}
+            {<Response/>}
         </div> 
     </section>
     )
