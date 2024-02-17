@@ -8,7 +8,8 @@ const Ask = ({name, setName}) => {
     
     const [prompt, setPrompt] = useState('');
     const [storedName, setStoredName] = useState('');
-    const [response, setResponse] = useState(false);
+    const [showResponse, setShowResponse] = useState(false);
+    const [fetching, setFetching] = useState(false);
 
     // retrieve name from local storage 
     useEffect(() => {
@@ -21,9 +22,19 @@ const Ask = ({name, setName}) => {
     // make API call to send prompt and get a response.
     const submitPrompt = async () => {
         try {
-            const response = await fetch()
-        } catch {
+            const response = await fetch('/ask', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ question: prompt }),
+            });
 
+            const data = await response.json();
+            console.log('Response from server:', data.response);
+            setShowResponse(true);
+        } catch {
+            console.error('Error submitting prompt:', error);
         }
         console.log('Name:', name);
         console.log('Prompt:', prompt);
@@ -45,14 +56,18 @@ const Ask = ({name, setName}) => {
                 onChange={(e) => setPrompt(e.target.value)}
                 required
                 />
-           <IconButton className="rounded hover:shadow-[#333333]/20 focus:shadow-[#333333]/20 active:shadow-[#333333]/10" onClick={submitPrompt}>
-                <FontAwesomeIcon
-                    icon={faArrowAltCircleUp} className="text-white size-5 mt-2 ml-3"/>
+            <IconButton
+                disabled={fetching}
+                className="rounded hover:shadow-[#333333]/20 focus:shadow-[#333333]/20 active:shadow-[#333333]/10" onClick={submitPrompt}
+                >
+                {fetching ? '' : <FontAwesomeIcon
+                icon={faArrowAltCircleUp} className="text-white size-5 mt-2 ml-3"/> }
             </IconButton>
         </div>    
         <div>
-            {/* if event has occured display response */}
-            {<Response/>}
+            <div className='max-w-xs bg-white bg-opacity-10 rounded-lg bg-clip-padding backdrop-filter backdrop-blur-lg p-3 m-4 shadow-lg mx-auto text-center'>
+                {showResponse}
+            </div>
         </div> 
     </section>
     )
