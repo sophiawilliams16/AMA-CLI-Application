@@ -2,7 +2,7 @@ import { useState, useEffect} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IconButton } from "@material-tailwind/react";
 import { faArrowAltCircleUp } from '@fortawesome/free-solid-svg-icons';
-import Response from '../components/response';
+//import Response from '../components/response';
 
 const Ask = ({name, setName}) => {
     
@@ -22,7 +22,7 @@ const Ask = ({name, setName}) => {
     // make API call to send prompt and get a response.
     const submitPrompt = async () => {
         try {
-            const response = await fetch('/ask', {
+            const response = await fetch('/api/ask', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -34,9 +34,8 @@ const Ask = ({name, setName}) => {
             console.log('Response from server:', data.response);
             setShowResponse(true);
         } catch {
-            console.error('Error submitting prompt:', error);
+            console.log('Error submitting prompt');
         }
-        console.log('Name:', name);
         console.log('Prompt:', prompt);
     };
 

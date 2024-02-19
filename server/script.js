@@ -40,7 +40,7 @@ const promptFunc = async (input) => {
         // Define parameters for each question asked using template 
         const prompt = new PromptTemplate({
             template:
-                "You are a python expert and will answer the user’s coding questions thoroughly as possible.\n{format_instructions}\n{question}",
+                "You are a helpful assistant.",
             inputVariables: ["question"],
             partialVariables: { format_instructions: formatInstructions }
         });
