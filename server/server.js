@@ -23,16 +23,16 @@ app.use((req, res, next) => {
   next();
 });
 
-// app.post("/api/ask", async (req, res) => {
-//   try {
-//     const userQuestion = req.body.question;
-//     const response = await promptFunc(userQuestion);
-//     res.json({ response });
-//   } catch (error){
-//     console.error("Error processing the request:", error);
-//     res.status(500).json({ error: "Internal server error" });
-//   }
-// });
+app.post("/ask", async (req, res) => {
+  try {
+    const userQuestion = req.body.question;
+    const response = await promptFunc(userQuestion);
+    res.json({ response });
+  } catch (error){
+    console.error("Error processing the request:", error);
+    res.status(500).json({ error: "Internal server error" });
+  }
+});
 
 // Serve 'index.html' for all other routes
 app.get('/*', (req, res) => {

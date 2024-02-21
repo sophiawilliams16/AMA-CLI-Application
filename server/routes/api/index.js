@@ -1,6 +1,6 @@
 const router = require('express').Router();
-const chatRoutes = require('./ask-routes.js');
+const askRoutes = require('./ask-routes.js');
 
-router.use('/ask', userRoutes);
+router.use('/ask', askRoutes);
 
 module.exports = router;

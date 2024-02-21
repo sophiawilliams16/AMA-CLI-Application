@@ -23,20 +23,20 @@ const parser = StructuredOutputParser.fromNamesAndDescriptions({
 // hold value of getFormatInstructions() to pass instructions to our template for how we want the final response to be structured
 const formatInstructions = parser.getFormatInstructions();
 
-const messages = [
-    {
-        role: "system",
-        content: "you are a helpful assistant"
-    },
-    {
-        role: "user",
-        content: prompt
-    },
-]
-
 // Pass in prompts 
 const promptFunc = async (input) => {
     try {
+        const messages = [
+            {
+                role: "system",
+                content: "you are a helpful assistant",
+            },
+            {
+                role: "user",
+                content: input,
+            },
+        ];
+
         // Define parameters for each question asked using template 
         const prompt = new PromptTemplate({
             template:
@@ -51,7 +51,7 @@ const promptFunc = async (input) => {
         });
         
         // Call the model with formatted prompt 
-        const res = await model.call(input);
+        const res = await model.call(promptInput);
         return await parser.parse(res); 
 
     } catch (err) {
