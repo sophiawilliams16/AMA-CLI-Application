@@ -15,13 +15,13 @@ const model = new OpenAI({
 });
 
 // define a schema for the output
-const parser = StructuredOutputParser.fromNamesAndDescriptions({
-    code: "Python code that answers the user's question",
-    explanation: "detailed explanation of the example code provided",
-});
+// const parser = StructuredOutputParser.fromNamesAndDescriptions({
+//     response: "Python code that answers the user's question",
+//     explanation: "detailed explanation of the example code provided",
+// });
 
 // hold value of getFormatInstructions() to pass instructions to our template for how we want the final response to be structured
-const formatInstructions = parser.getFormatInstructions();
+//const formatInstructions = parser.getFormatInstructions();
 
 // Pass in prompts 
 const promptFunc = async (input) => {
@@ -33,26 +33,36 @@ const promptFunc = async (input) => {
             },
             {
                 role: "user",
-                content: input,
+                content: "hello!",
             },
         ];
 
-        // Define parameters for each question asked using template 
+        // Define parameters for each question asked using template
         const prompt = new PromptTemplate({
-            template:
-                "You are a helpful assistant.",
+            template: "You are a helpful assistant.{question}",
             inputVariables: ["question"],
-            partialVariables: { format_instructions: formatInstructions }
+            // partialVariables: { format_instructions: formatInstructions },
         });
 
         // Format prompt with user input
         const promptInput = await prompt.format({
             question: input,
         });
-        
-        // Call the model with formatted prompt 
-        const res = await model.call(promptInput);
-        return await parser.parse(res); 
+
+        // Ensure promptInput is a string
+        const promptString = Array.isArray(promptInput)
+            ? promptInput.join("\n")
+            : promptInput;
+
+        // Call the model with formatted prompt
+        const response = await model.call(promptString);
+        //const responseData = await parser.parse(res);
+
+        // Extract content from choices in the response
+        // const assistantResponse =
+        //     responseData.choices[0]?.message?.content || "";
+
+        return response;
 
     } catch (err) {
         console.error(err);

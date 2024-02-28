@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const routes = require('./routes');
+const promptFunc = require('./script');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -23,15 +24,15 @@ app.use((req, res, next) => {
   next();
 });
 
-app.post("/ask", async (req, res) => {
-  try {
-    const userQuestion = req.body.question;
-    const response = await promptFunc(userQuestion);
-    res.json({ response });
-  } catch (error){
-    console.error("Error processing the request:", error);
-    res.status(500).json({ error: "Internal server error" });
-  }
+app.post("/api/ask", async (req, res) => {
+    try {
+        const userQuestion = req.body.question;
+        const response = await promptFunc(userQuestion);
+        res.json({ response });
+    } catch (error) {
+        console.error("Error processing the request:", error);
+        res.status(500).json({ error: "Internal server error" });
+    }
 });
 
 // Serve 'index.html' for all other routes

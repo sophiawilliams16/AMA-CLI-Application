@@ -10,6 +10,7 @@ const Ask = ({name, setName}) => {
     const [storedName, setStoredName] = useState('');
     const [showResponse, setShowResponse] = useState(false);
     const [fetching, setFetching] = useState(false);
+    const [assistantResponse, setAssistantResponse] = useState(false);
 
     // retrieve name from local storage 
     useEffect(() => {
@@ -29,13 +30,23 @@ const Ask = ({name, setName}) => {
                 },
                 body: JSON.stringify({ question: prompt }),
             });
+            
+            console.log(response);
+
+            if (!response.ok) {
+                console.log('Error submitting prompt. HTTP error:', response.status);
+                return;
+            }
 
             const data = await response.json();
-            console.log('Response from server:', data.response);
+            console.log("Response from server:", data.response);            
             setShowResponse(true);
-        } catch {
-            console.log('Error submitting prompt');
+            setAssistantResponse(data.response);
+        } catch (error) {
+            console.error('Error submitting prompt', error);
         }
+        
+        console.log("Assistant Response", assistantResponse);
         console.log('Prompt:', prompt);
     };
 
@@ -65,7 +76,7 @@ const Ask = ({name, setName}) => {
         </div>    
         <div>
             <div className='max-w-xs bg-white bg-opacity-10 rounded-lg bg-clip-padding backdrop-filter backdrop-blur-lg p-3 m-4 shadow-lg mx-auto text-center'>
-                {showResponse}
+                {showResponse && <div>{assistantResponse}</div>}
             </div>
         </div> 
     </section>
