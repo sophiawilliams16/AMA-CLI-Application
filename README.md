@@ -4,10 +4,6 @@
 
 This fullstack application leverages the OpenAI API to generate answers to any question. It also explores principles of prompt engineerng through the use of LangChain output parsers. 
 
-I loved getting exposure to using OpenAI's API and learning about principles of prompt engineering. 
-
-
-
 ## Installation
 
 1.  Clone the repo
@@ -16,10 +12,10 @@ I loved getting exposure to using OpenAI's API and learning about principles of 
     git clone https://github.com/sophiawilliams16/chatbot-app
     ```
 
-2.  Change directories to `chatbot`
+2.  Change directories to `chatbot-app`
 
     ```sh
-    cd zenvest
+    cd chatbot-app
     ```
 
 3.  Install NPM packages
@@ -33,7 +29,7 @@ I loved getting exposure to using OpenAI's API and learning about principles of 
 1. Change directories to where you cloned the repo
 
     ```sh
-    cd path/to/zenvest
+    cd path/to/chatbot-app
     ```
 
 2. Run `npm run develop`
@@ -44,13 +40,24 @@ I loved getting exposure to using OpenAI's API and learning about principles of 
 
 3. Go to `http://localhost:3000/` in your browser
 
+## Contributions 
+
+Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are greatly appreciated.
+
+If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement". Don't forget to give the project a star! Thanks again!
+
+- Fork the Project
+- Create your Feature Branch (git checkout -b feature/AmazingFeature)
+- Commit your Changes (git commit -m 'Add some AmazingFeature')
+- Push to the Branch (git push origin feature/AmazingFeature)
+- Open a Pull Request
 
 ## Credits 
 
 - [OpenAI API](https://platform.openai.com/docs/api-reference)
 - [Langchain](https://python.langchain.com/docs/get_started/introduction)
 - [edX AI Applications and Prompt Engineering](https://learning.edx.org/course/course-v1:edX+BC-OC-ai+2T2023/home)
-
+- [Chatscope](https://www.youtube.com/watch?v=Lag9Pj_33hM)
 
 
 ## MIT License

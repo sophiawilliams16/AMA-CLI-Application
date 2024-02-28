@@ -2,7 +2,6 @@ import { useState, useEffect} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IconButton } from "@material-tailwind/react";
 import { faArrowAltCircleUp } from '@fortawesome/free-solid-svg-icons';
-//import Response from '../components/response';
 
 const Ask = ({name, setName}) => {
     
@@ -58,7 +57,7 @@ const Ask = ({name, setName}) => {
         </div>  
         <div>
             <input
-                className='max-w-xs bg-white bg-opacity-10 rounded-lg bg-clip-padding backdrop-filter backdrop-blur-lg p-2 shadow-lg mx-auto text-center'
+                className='bg-white bg-opacity-10 rounded-lg bg-clip-padding backdrop-filter backdrop-blur-lg p-2 shadow-lg mx-auto text-center whitespace-normal'
                 placeholder="ask me anything"
                 name="prompt"
                 id="prompt"
