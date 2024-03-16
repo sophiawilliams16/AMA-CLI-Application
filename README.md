@@ -2,7 +2,9 @@
 
 ## Description
 
-This fullstack application leverages the OpenAI API to generate answers to any question. It also explores principles of prompt engineerng through the use of LangChain output parsers. 
+This fullstack messaging application leverages the OpenAI API to generate answers to any question. The frontend was developed using React and the @chatscope UI kit. 
+
+View the application live [HERE](https://chatbot-app-wa51.onrender.com/ask)
 
 ## Installation
 
@@ -38,7 +40,7 @@ This fullstack application leverages the OpenAI API to generate answers to any q
     npm run dev
     ```
 
-3. Go to `http://localhost:3000/` in your browser
+3. Go to `http://localhost:3001/` in your browser
 
 ## Contributions 
 
