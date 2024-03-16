@@ -2,9 +2,9 @@ const express = require("express");
 const router = express.Router();
 const promptFunc = require("../../script.js");
 
-router.post("/ask", async (req, res) => {
+router.post("/", async (req, res) => {
     try {
-        const prompt = req.body.question;
+        const prompt = req.body.messages;
         const response = await promptFunc(prompt);
         res.json({ response });
     } catch (error) {
