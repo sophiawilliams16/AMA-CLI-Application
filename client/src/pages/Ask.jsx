@@ -1,9 +1,9 @@
 import { useState, useEffect} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IconButton } from "@material-tailwind/react";
-import { faArrowAltCircleUp } from '@fortawesome/free-solid-svg-icons';
+import { faAlignRight, faArrowAltCircleUp, faHandPointRight } from '@fortawesome/free-solid-svg-icons';
 import '@chatscope/chat-ui-kit-react';
-import { MainContainer, ChatContainer, MessageList, Message, MessageInput, TypingIndicator } from '@chatscope/chat-ui-kit-react';
+import { MainContainer, ChatContainer, MessageList, Message, MessageInput, TypingIndicator, Sidebar, ConversationList, Conversation } from '@chatscope/chat-ui-kit-react';
 
 const Ask = ({name, setName}) => {
     
@@ -16,7 +16,7 @@ const Ask = ({name, setName}) => {
     // retrieve name from local storage 
     const [messages, setMessages] = useState([
         {
-            message: "Hello! How can I help you today?",
+            message: "How can I help you today?",
             sender: "ChatGPT"
         }
     ])
@@ -101,24 +101,38 @@ const Ask = ({name, setName}) => {
     }
 
     return (
-    <section style={{ position:"relative", height: "500px" }}>
-        <MainContainer>
-            <ChatContainer>
-                    <MessageList
-                        scrollBehavior='smooth'
-                        typingIndicator={typing ? <TypingIndicator content="typing" /> : null}>
+    <section >
+        {/* <Sidebar className=''>
+            <ConversationList>
+            <Conversation name={storedName} active={true}>
+            
+            </Conversation>
+            </ConversationList>
+        </Sidebar>    */}
+        <MainContainer className='grid place-items-center justify-items-center'>
+            <ChatContainer className='mt-24 rounded-lg bg-clip-padding backdrop-filter backdrop-blur-lg shadow-lg m-10 text-center max-w-lg'>
+                <MessageList
+                    className=''
+                    scrollBehavior='smooth'
+                    typingIndicator={typing ? <TypingIndicator content="... typing" /> : null}>
                     {messages.map((message, i) => (
                         <Message
+                        className='bg-white bg-opacity-10 rounded-lg bg-clip-padding backdrop-filter backdrop-blur-lg shadow-lg mx-auto text-center p-4 m-5'
                         key={i}
                         model={{
                             role: message.sender === "ChatGPT" ? "assistant" : "user",
                             message: message.message,
-                            //sentTime: new Date(),
+                            // sentTime: new Date(),
                         }}
                         />
                     ))}
                 </MessageList>
-                <MessageInput placeholder='Ask me anything' onSend={(message) => handleSend(message)}/>
+                    <MessageInput
+                        placeholder='Ask me anything'
+                        attachButton={false}
+                        onSend={(message) => handleSend(message)}
+                        className='bg-white bg-opacity-20 p-5 m-2 max-h-24'
+                    />
             </ChatContainer>
         </MainContainer>
     </section>
