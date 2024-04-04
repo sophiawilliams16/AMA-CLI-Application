@@ -1,10 +1,10 @@
-# CLI Python Tutor 
+# ChatBot-App
 
 ## Description
 
-This fullstack messaging application leverages the OpenAI API to generate answers to any question. The frontend was developed using React and the @chatscope UI kit. 
+This fullstack messaging application leverages the OpenAI API to generate answers to any question. The frontend was developed using React, DaisyUI, and the @chatscope UI kit. 
 
-View the application live [HERE](https://chatbot-app-wa51.onrender.com/ask)
+View the application live [HERE](https://chatbot-app-wa51.onrender.com)
 
 ## Installation
 
@@ -57,9 +57,8 @@ If you have a suggestion that would make this better, please fork the repo and c
 ## Credits 
 
 - [OpenAI API](https://platform.openai.com/docs/api-reference)
-- [Langchain](https://python.langchain.com/docs/get_started/introduction)
-- [edX AI Applications and Prompt Engineering](https://learning.edx.org/course/course-v1:edX+BC-OC-ai+2T2023/home)
 - [Chatscope](https://www.youtube.com/watch?v=Lag9Pj_33hM)
+- [DaisyUI](https://daisyui.com/)
 
 
 ## MIT License

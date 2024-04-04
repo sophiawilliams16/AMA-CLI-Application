@@ -32,25 +32,28 @@ const Hello = () => {
     };
 
     return (
-        <section className="grid place-items-center justify-items-center mt-24">
+        <div className="grid place-items-center justify-items-center mt-24">
             <div className='max-w-xs bg-white bg-opacity-10 rounded-lg bg-clip-padding backdrop-filter backdrop-blur-lg p-8 mb-4 shadow-lg mx-auto text-center'>
                 <h1>Welcome to Gravity! What's your name?</h1>
             </div>
             <div>
-                <input
-                    className='max-w-xs bg-white bg-opacity-10 rounded-lg bg-clip-padding backdrop-filter backdrop-blur-lg p-2 shadow-lg mx-auto text-center'
-                    placeholder="enter your first name"
-                    name="name"
-                    id="name"
-                    value={name}
-                    onChange={handleNameChange}
-                    required
-                />
-                <IconButton className="rounded hover:shadow-[#333333]/20 focus:shadow-[#333333]/20 active:shadow-[#333333]/10" onClick={saveName}>
-                    <FontAwesomeIcon icon={faArrowAltCircleUp} className="text-white size-5 mt-2 ml-3" />
-                </IconButton>
+                <label className="input input-bordered flex items-center gap-2  bg-white bg-opacity-10">
+                    <input
+                        type="text"
+                        placeholder="Type here"
+                        className="input input-bordered w-full max-w-xs" 
+                        name="name"
+                        id="name"
+                        value={name}
+                        onChange={handleNameChange}
+                        required
+                    />
+                    <IconButton className="rounded hover:shadow-[#333333]/20 focus:shadow-[#333333]/20 active:shadow-[#333333]/10" onClick={saveName}>
+                        <FontAwesomeIcon icon={faArrowAltCircleUp} className="text-white size-5 mt-2 ml-3" />
+                    </IconButton>
+                </label>
             </div>
-        </section>
+        </div>
     );
 };
 

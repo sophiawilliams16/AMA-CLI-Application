@@ -1,7 +1,7 @@
 import { useState, useEffect} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IconButton } from "@material-tailwind/react";
-import { faAlignRight, faArrowAltCircleUp, faHandPointRight } from '@fortawesome/free-solid-svg-icons';
+import { faArrowAltCircleUp } from '@fortawesome/free-solid-svg-icons';
 import '@chatscope/chat-ui-kit-react';
 import { MainContainer, ChatContainer, MessageList, Message, MessageInput, TypingIndicator, Sidebar, ConversationList, Conversation } from '@chatscope/chat-ui-kit-react';
 
@@ -104,34 +104,41 @@ const Ask = ({name, setName}) => {
     <section >
         {/* <Sidebar className=''>
             <ConversationList>
-            <Conversation name={storedName} active={true}>
-            
-            </Conversation>
+                <Conversation name={storedName} active={true}>
+                </Conversation>
             </ConversationList>
-        </Sidebar>    */}
-        <MainContainer className='grid place-items-center justify-items-center'>
-            <ChatContainer className='mt-24 rounded-lg bg-clip-padding backdrop-filter backdrop-blur-lg shadow-lg m-10 text-center max-w-lg'>
-                <MessageList
+        </Sidebar> */}
+        <details className="dropdown">
+            <summary className="m-1 btn text-white bg-white bg-opacity-10">{storedName}</summary>
+            <ul className="p-2 shadow menu dropdown-content z-[1] bg-white bg-opacity-10 rounded-box w-52 ">
+                <li><a>Conversation 1</a></li>
+                <li><a>Conversation 2</a></li>
+            </ul>
+        </details>
+        <MainContainer className='grid place-items-center'>
+            <ChatContainer className='mt-24 rounded-lg bg-clip-padding backdrop-filter backdrop-blur-lg shadow-lgm-10 max-w-lg'>
+            <MessageList
                     className=''
                     scrollBehavior='smooth'
-                    typingIndicator={typing ? <TypingIndicator content="... typing" /> : null}>
-                    {messages.map((message, i) => (
-                        <Message
-                        className='bg-white bg-opacity-10 rounded-lg bg-clip-padding backdrop-filter backdrop-blur-lg shadow-lg mx-auto text-center p-4 m-5'
-                        key={i}
-                        model={{
-                            role: message.sender === "ChatGPT" ? "assistant" : "user",
-                            message: message.message,
-                            // sentTime: new Date(),
-                        }}
-                        />
-                    ))}
+                    typingIndicator={typing ? <TypingIndicator content="... typing" className='justify-items-end' /> : null}>
+                {messages.map((message, i) => (
+                    <Message
+                    className='bg-white bg-opacity-10 rounded-lg bg-clip-padding backdrop-filter backdrop-blur-lg shadow-lg mx-auto text-center p-4 m-5'
+                    key={i}
+                    model={{
+                        role: message.sender === "ChatGPT" ? "assistant" : "user",
+                        message: message.message,
+                        // sentTime: new Date(),
+                    }}
+                    />
+                ))}
                 </MessageList>
-                    <MessageInput
-                        placeholder='Ask me anything'
-                        attachButton={false}
-                        onSend={(message) => handleSend(message)}
-                        className='bg-white bg-opacity-20 p-5 m-2 max-h-24'
+                <MessageInput
+                    placeholder='Ask me anything'
+                    attachButton={false}
+                    // sendButton={<FontAwesomeIcon icon={faArrowAltCircleUp} />}
+                    onSend={(message) => handleSend(message)}
+                    className='bg-white bg-opacity-10 rounded-lg bg-clip-padding backdrop-filter backdrop-blur-lg shadow-lg max-h-24'
                     />
             </ChatContainer>
         </MainContainer>
