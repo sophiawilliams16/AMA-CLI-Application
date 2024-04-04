@@ -37,7 +37,7 @@ const Hello = () => {
                 <h1>Welcome to Gravity! What's your name?</h1>
             </div>
             <div>
-                <label className="input input-bordered flex items-center gap-2  bg-white bg-opacity-10">
+                <label className="input input-bordered flex items-center gap-2  bg-white bg-opacity-10 text-black">
                     <input
                         type="text"
                         placeholder="Type here"
